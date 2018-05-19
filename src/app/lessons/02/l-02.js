@@ -259,16 +259,19 @@ const lesson = {
 
 console.log('\nLesson 02 - Homework');
 
-console.log('\nTask 02.01: TODO: Review the contents of this file and make sure you understand it.');
 // Task 02.01
 // 1 point
 // TODO: if you performed this task, please uncomment next line:
-// console.log('I\'ve reviewed the l-02.js file and I understand it');
+console.log('I\'ve reviewed the l-02.js file and I understand it');
 
 console.log('\nTask 02.02:');
 // Task 02.02
 // 1 point
 // Using String.substring method, log to the console characters 5-8 of the 'helloWorld' string.
 // TODO: write code here
+//function str_substr (str) {
+//    str = 'helloWorld';
+//    return (str.substring(5,8))
+//}
 
 console.log('\nLesson 02 - Homework End.');
