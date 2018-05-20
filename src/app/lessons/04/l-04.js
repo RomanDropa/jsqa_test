@@ -596,8 +596,11 @@ var crazyMix = [1, '1', true, 2, '02', 3, '0', '10', 11, [], {}, function() {}];
 
 function arrayCleanUp(arrayToCleanUp) {
 	var cleanedUp = arrayToCleanUp;
-	// TODO: пиши свій код тут:
-	
+	var cleanedUp = cleanedUp.filter(function (element) {
+		if (typeof element === 'number') {
+			return element;
+		}
+	});
 	return cleanedUp;
 }
 
