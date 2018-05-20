@@ -631,6 +631,15 @@ var matrix = [
 
 function findMaxInMatrix(mtx) {
 	// TODO: пиши свій код тут:
+	let max = 0;
+	for (let i=0; i<mtx.length; i++) {
+		for (let j = 0; j<mtx[0].length;j++){
+			if (mtx[i][j]> max) {
+				max = mtx[i][j];
+			}
+		}
+	}
+	return max;
 }
 
 var res = findMaxInMatrix(matrix);
