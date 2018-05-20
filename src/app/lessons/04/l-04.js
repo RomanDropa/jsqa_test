@@ -529,7 +529,8 @@ console.log('\nTask 04.01');
 // Використай метод push, щоб додати до масиву ще одне просте число.
 // TODO: пиши код тут:
 
-let primeNumbers;
+let primeNumbers = [2,3,5,7,11,13,17,19,23,29];
+primeNumbers.push(31);
 
 // Цей код тестує завдання:
 if (primeNumbers && primeNumbers.length === 11) {
@@ -545,6 +546,11 @@ console.log('\nTask 04.02');
 // Напиши функцію sortNumbers і використай її у методі sort масиву primeNumbers для того, 
 // щоб відсортувати його елементи у зворотньому порядку.
 // TODO: пиши код тут:
+function sortNumbers(a,b) {
+	if (a < b) return 1;
+	if (a > b) return -1
+}
+primeNumbers.sort(sortNumbers);
 // Цей код тестує завдання:
 if (primeNumbers && primeNumbers[0] && primeNumbers[0] === 31) {
 	console.log('Task 04.02 is DONE! ');
@@ -552,14 +558,11 @@ if (primeNumbers && primeNumbers[0] && primeNumbers[0] === 31) {
 	console.log('Please make Task 04.02');
 }
 
-
-
-
-
 console.log('\nTask 04.03'); 
 // Points: 2
 // За допомогою методу splice виріж з масиву елементи з другого по третій і при цьому заміни їх на рядок 'foo'.
 // TODO: пиши код тут:
+primeNumbers.splice(1,2,"foo","foo");
 if (primeNumbers && primeNumbers[2] === 'foo') {
 	console.log('Task 04.03 is DONE! ');
 } else {
@@ -567,13 +570,15 @@ if (primeNumbers && primeNumbers[2] === 'foo') {
 }
 
 
-
-
-
 console.log('\nTask 04.04');
 // Points: 2 
 // Використай метод Array.forEach для того, 
 // щоб додати до кожного елементу масиву [21, 63, 84] число '42'
+var arr = [21,63,84];
+arr.forEach(function (value, i, arr){
+	arr[i] = value + 42;
+});
+console.log(arr);
 // TODO: пиши свій код тут:
 console.log('Please make Task 04.04');
 
@@ -592,6 +597,7 @@ var crazyMix = [1, '1', true, 2, '02', 3, '0', '10', 11, [], {}, function() {}];
 function arrayCleanUp(arrayToCleanUp) {
 	var cleanedUp = arrayToCleanUp;
 	// TODO: пиши свій код тут:
+	
 	return cleanedUp;
 }
 
