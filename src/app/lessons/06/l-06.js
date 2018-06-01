@@ -351,9 +351,15 @@ const glo = 'glo site';
 	// TODO: пишіть свій код тут:
 
 	console.log('\nPlease implement this task');
+	var f = function (par1,pow) {
+		return (Math.pow(par1,pow));
+	}
+   console.log(f(3,3));
 
-
-
+   function cube (par1,pow) {
+	return (Math.pow(par1,pow));
+	}
+	console.log(cube(3,4));
 
 
 	console.log('\nTask 06.02');
@@ -374,16 +380,12 @@ const glo = 'glo site';
 	};
 
 	function1();
+	//global1 = 'Local1'
+	//global2 = 'Local2'
 
 	console.log('log from global scope: \n', global1, '\n', global2);
-
-
-
-
-
-
-
-
+	//global1 = 'Global1'
+	//global2 = 'Local2'
 
 
 	console.log('\nTask 06.03');
@@ -392,16 +394,19 @@ const glo = 'glo site';
 	// Перепиши код function1 з попереднього завдання таким чином, щоб _другий_ вивід
 	// з консолі показував LOCAL1 замість global1
 
-	// TODO: код тут:
+	var global1 = 'global1';
+	var global2 = 'global2';
+
+	var function1 = function () {
+		global1 = 'LOCAL1';
+		global2 = 'LOCAL2';
+		console.log('log from function scope: \n', global1, '\n', global2);
+	};
+
+	function1();
+	console.log('log from global scope: \n', global1, '\n', global2);
 
 	console.log('\nPlease implement this task');
-
-
-
-
-
-
-
 
 
 
@@ -411,15 +416,17 @@ const glo = 'glo site';
 	// Перепиши код завдання 06.02 таким чином, щоб _другий_ вивід
 	// з консолі показував global2 замість LOCAL2
 
-	// TODO: код тут:
+	var global1 = 'global1';
+	var global2 = 'global2';
 
+	var function1 = function () {
+		global1 = 'LOCAL1';
+		var global2 = 'LOCAL2';
+		console.log('log from function scope: \n', global1, '\n', global2);
+	};
+	function1();
+	console.log('log from global scope: \n', global1, '\n', global2);
 	console.log('\nPlease implement this task');
-
-
-
-
-
-
 
 
 	console.log('\nTask 06.05');
@@ -434,8 +441,15 @@ const glo = 'glo site';
 	// TODO: пишіть свій код тут:
 
 	console.log('\nPlease implement this task');
-
-
+	function blackBox(hidden) {
+		return function insider() {
+			return hidden
+		}
+	}
+var result1 = blackBox('secret');
+console.log(result1);
+var result2 = result1();
+console.log(result2);
 
 
 	console.log('\nLesson 06 - Homework End');
