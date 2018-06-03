@@ -275,7 +275,9 @@
 		return function func1InternalFunc() {}
 	}
 
-	// TODO: дай відповідь тут:
+	// TODO: 
+	console.log('=====Result of task 07.01=====');
+	console.log('Будь-яка функція в JS єзамиканням');
 
 	console.log('\nTask 07.02');
 	console.log('\n\t Please implement this task');
@@ -285,10 +287,13 @@
 	// TODO: пиши код тут:
 
 	function sillyClosure() {
-		return this;
+		var num = 5;
+		return function() {
+			return num * 2;
+		}
 	}
-
-	console.log(sillyClosure())
+	console.log('=====Result of task 07.02=====')
+	console.log(sillyClosure()())
 
 	console.log('\nTask 07.03');
 	console.log('\n\t Please implement this task');
@@ -298,10 +303,18 @@
 	// Як можна отримати доступ до цієї змінної?
 	function iAmClosure() {
 		var iAmEnclosed = 'secret';
-		return false;
+		return function insider() {
+			iAmEnclosed = 'not a secret';
+			return iAmEnclosed;
 	}
-
+}
+	console.log('\n=====Result of Task 07.03=====:')
+	var res1 = iAmClosure();
+	console.log(res1);
+	var res2 = res1();
+	console.log(res2);
 	// TODO: пиши відповідь словами тут:
+
 	// WRONG 1:
 	function iAmClosureTwo() {
 		var iAmEnclosed = 'secret';
@@ -363,5 +376,22 @@
 	var accessEnclosed = iAmClosureFour();
 	var disclosedInternalFour = accessEnclosed();
 
+	console.log('=====Results of task 07.04=====');
+	function myClosure() {
+		var obj = {
+			name : 'Roman',
+			surname : 'Dropa',
+			age : null
+		};
+		console.log('Obj before insider', obj)
+		return function() {
+			obj.age = 31;
+			return obj
+		}
+	}
+	var resMyClosure = myClosure();
+	console.log('result of myClosure = ', resMyClosure);
+	var resultInsider = resMyClosure();
+	console.log('result of insider = ', resultInsider);
 })();
 // Завершення глобальної анонімної функції
