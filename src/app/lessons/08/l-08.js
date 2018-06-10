@@ -415,6 +415,36 @@
     // Напиши функцію useAnonymousCallback, що приймає параметр callback, і виклич її, 
     // передавши анонімну функцію в якості параметра.
     // TODO: пиши тут:
+    function useAnonymousCallback(callbackFunct) {            
+        if (typeof(callbackFunct) === 'function') {
+            return callbackFunct;
+        }
+        else {
+            console.log('Callback function is not a function');
+            return false;
+        }
+    }
+
+    let randValue = myRand();
+    console.log('Random value is: ', randValue);
+
+    function myRand() {
+        return Math.random();
+     }
+    if (randValue > 0.5) {
+        useAnonymousCallback(function() {
+            console.log('Start main function:');
+            randValue *= 100;
+            console.log('new value = ', randValue);
+            return randValue;
+        })();
+    }
+    else {
+        console.log('Rand value is less than 0.5');
+    }
+    
+    
+       
 
     console.log('Please implement this task');
 
@@ -422,7 +452,39 @@
     // Points: 2
     // Напиши функцію useAnonymousCallback, що приймає параметр callback, і виклич її, 
     // передавши їй в якості параметра іменовану функцію.
+    function useAnonymousCallback(callbackFunct) {            
+        if (typeof(callbackFunct) === 'function') {
+            return callbackFunct;
+        }
+        else {
+            console.log('Callback function is not a function');
+            return false;
+        }
+    }
+    function myRand() {
+        return Math.random();
+     }
+    let randValue2 = myRand();
+    console.log('Random value is: ', randValue2);
 
+    function callback2() {
+        console.log('Start main function:');
+        randValue2 *= 100;
+        console.log('new value = ', randValue2);
+        return randValue2;
+    }
+    
+    if (randValue2 > 0.5) {
+      let task2 = useAnonymousCallback(callback2); 
+      console.log('task2 = ', task2());       
+    }
+    else {
+        console.log('Rand value is less than 0.5');
+    }
+    
+
+    //let task2 = useAnonymousCallback(callback2);
+   
     console.log('Please implement this task');
     
 
@@ -433,8 +495,20 @@
     // Напиши код, що використовує цю конструкцію для того, щоб вивести у консоль
     // значення змінної enclosed через замикання.
     // TODO: пиши тут:
+function workingCallback(callback) {
+    let enclosed = 'Param for workingCallback function';
+    if (typeof(callback) === 'function') {
+        return callback(enclosed);
+    }
+    else {
+        console.log('Callback is not a function');
+    }
+}
 
-    console.log('Please implement this task');    
+function internalCallback(param) {
+    return(console.log(param));
+}
+workingCallback(internalCallback);
 
     console.h1('Lesson 08 - Homework End');
 
