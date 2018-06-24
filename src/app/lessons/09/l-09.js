@@ -215,6 +215,10 @@
     // Вище у цьому файлі за допомогою функції JSQA_APP.namespace() глобальний об'єкт JSQA_APP наповнено внутрішніми просторами імен
     // Виведи у консоль значення об'єкта JSQA_APP і проаналізуй побачене. Чи розумієш ти, як утворилася такка структура?
 
+    //const module2 = JSQA_APP.namespace('JSQA_APP.modules.module2');
+    //JSQA_APP.namespace('modules.module51');
+    console.log(JSQA_APP);
+
     console.h2('Task 09.02');
     console.log('Please implement this task');
     // Points: 2
@@ -223,6 +227,9 @@
     // Знову виведи у консоль значення об'єкта JSQA_APP і переконайся, що новий модуль з'явився у об'єкті
     // Tip: для зручності і краси, можна виводити так: 
     // console.log(JSON.stringify(JSQA_APP, null, '  '));
+    JSQA_APP.namespace('modules.mainModule');
+    console.log(JSON.stringify(JSQA_APP, null, '  '));
+
 
     console.h2('Task 09.03');
     console.log('Please implement this task');
@@ -230,12 +237,42 @@
     // Користуючись прикладом шаблону "Приватні властивості і методи" вище, створи новий об'єкт student з приватною властивіcтю id,
     // що буде доступною тільки для читання через публічний метод getId()
 
+    let student = (function() {
+        let id = "Roman Dropa"
+        return {
+             getId: function () {
+             return id;
+         } 
+    };
+    })()
+    const myObj = student.getId();
+    console.log('Student name is: ',myObj);
+
     console.h2('Task 09.04');
     console.log('Please implement this task');
     // Points: 4
     // Користуючись прикладом шаблону "Модуль" вище, додай до об'єкта student приватний метод analyzeHomeworkTask(homework_id),
     // що буде доступний через публічний метод doHomework(homework_id)
+    student = (function(){
+        const id = "Roman Dropa";
+        const homework_id = "Lesson 9";
+        function analyzeHomeworkTask(homework_id) {
+            console.log('Result of ' + homework_id);
+        }
+        return {
+            getId: function(){
+                return id;
+            },
+            doHomework: function() {
+                analyzeHomeworkTask(homework_id);
+            }
+        }
+    })()
+    console.log(student.doHomework());
+    
 
     console.h1('Lesson 09 - Homework End');
 
 })();
+
+
